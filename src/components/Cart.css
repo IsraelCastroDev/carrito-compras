@@ -1,0 +1,6 @@
+input[type="checkbox"]:checked ~ aside {
+  transform: translateX(0);
+  box-shadow: -600px 600px 600px 600px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: -600px 600px 600px 600px rgba(0, 0, 0, .5);
+  -moz-box-shadow: -600px 600px 600px 600px rgba(0, 0, 0, .5);
+}
