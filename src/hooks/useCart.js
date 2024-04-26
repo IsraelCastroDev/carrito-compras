@@ -8,7 +8,9 @@ export function useCart() {
     throw new Error("useCart must be used within a CartProvider");
   }
 
-  const { cart, addToCart, removeFromCart, clearCart } = cartContext;
+  const { cart, addToCart, decreaseQuantity, removeFromCart, clearCart } =
+    cartContext;
 
-  return { cart, addToCart, removeFromCart, clearCart };
+  return { cart, addToCart, decreaseQuantity, removeFromCart, clearCart };
 }
+ 
