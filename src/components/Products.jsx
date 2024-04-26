@@ -5,9 +5,7 @@ import { IconAddToCart } from "./Icons/IconAddToCart";
 function Products() {
   const contextProducts = useProducts();
   const { products } = contextProducts;
-
-  const cartContext = useCart();
-  const { addToCart } = cartContext;
+  const { addToCart } = useCart();
 
   return (
     <main className="max-w-[60rem] mx-auto">
