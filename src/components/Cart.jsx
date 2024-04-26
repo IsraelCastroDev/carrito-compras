@@ -1,14 +1,15 @@
 import { useId } from "react";
-import { IconCart } from "./Icons/IconCart";
 import { useCart } from "../hooks/useCart";
+import { IconCart } from "./Icons/IconCart";
 import { IconDeleteFromCart } from "./Icons/IconDeleteFromCart";
-import "./Cart.css";
 import IconPlus from "./Icons/IconPlus";
 import IconMinus from "./Icons/IconMinus";
+import "./Cart.css";
 
 function Cart() {
   const cartId = useId();
-  const { cart, addToCart, removeFromCart, clearCart } = useCart();
+  const { cart, addToCart, decreaseQuantity, removeFromCart, clearCart } =
+    useCart();
 
   return (
     <section>
@@ -21,7 +22,7 @@ function Cart() {
 
       <input type="checkbox" id={cartId} hidden />
 
-      <aside className="translate-x-[100%] fixed bottom-0 right-0 w-[30%] z-10  h-full bg-slate-700 transition-transform duration-300 ease-in-out">
+      <aside className="translate-x-[100%] fixed bottom-0 right-0 w-[80%] md:w-[20rem] z-10  h-full bg-slate-700 transition-transform duration-300 ease-in-out">
         <p className="text-center font-semibold border-2 border-transparent border-b-slate-300 py-2">
           {cart.length === 0
             ? "Tu carrito esta vacío."
@@ -47,7 +48,7 @@ function Cart() {
                   <div className="flex flex-row-reverse items-center justify-between my-2">
                     <p>${product.price}</p>
                     <p className="flex items-center gap-x-3">
-                      <button>
+                      <button onClick={() => decreaseQuantity(product.id)}>
                         <IconMinus />
                       </button>
                       <span className="font-black">{product.quantity}</span>
